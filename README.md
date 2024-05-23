@@ -8,6 +8,18 @@ The dataset used for this project is the Amazon Fine Food Reviews dataset, avail
 
 The objective of this project is to perform sentiment analysis on Amazon Fine Food reviews using the DistilBERT model. Sentiment analysis aims to determine the sentiment expressed in a piece of text, which can be positive, negative, or neutral.
 
+Columns:
+Id: The unique identifier for each review entry.
+ProductId: The unique identifier for the product being reviewed.
+UserId: The unique identifier for the user who wrote the review.
+ProfileName: The name or profile of the user who wrote the review.
+HelpfulnessNumerator: The number of users who found the review helpful.
+HelpfulnessDenominator: The total number of users who voted on whether the review was helpful or not.
+Score: The rating given by the user for the product, ranging from 1 to 5.
+Time: The timestamp indicating when the review was posted, in Unix time format (seconds since January 1, 1970).
+Summary: A brief summary or headline for the review.
+Text: The main body of the review, containing the detailed feedback or description provided by the user about the product.
+
 ## Key Steps
 
 - **Preprocessing:** Clean and preprocess the text data, including tasks such as removing stopwords, punctuation, and handling special characters.
