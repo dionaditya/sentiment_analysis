@@ -78,7 +78,17 @@ These visualizations collectively help in understanding the dataset's structure,
 
 ## Training
 
-For the training phase, we fine-tuned the DistilBERT-base-uncased model using the Amazon Fine Food Reviews dataset. The training process involved the following steps:
+For the training phase, we fine-tuned the DistilBERT-base-uncased model using the Amazon Fine Food Reviews dataset.
+
+Model Description
+DistilBERT is a transformers model designed to be smaller and faster than BERT, while retaining similar performance. It was pretrained using the BERT base model as a teacher on the same corpus in a self-supervised manner, meaning it was trained solely on raw text data without any human labeling. DistilBERT's pretraining involved three key objectives:
+
+Distillation Loss: The model was trained to produce the same probability distributions as the BERT base model.
+Masked Language Modeling (MLM): Similar to BERT, the model randomly masks 15% of the words in the input sentence. It then predicts the masked words, allowing it to learn a bidirectional representation of the sentence, unlike traditional RNNs or autoregressive models like GPT.
+Cosine Embedding Loss: The model was also trained to generate hidden states that closely match those of the BERT base model.
+By achieving these objectives, DistilBERT learns the same internal representations of the English language as BERT but is more efficient, making it faster for inference and downstream tasks.
+
+The training process involved the following steps:
 
 Preprocessing:
 
