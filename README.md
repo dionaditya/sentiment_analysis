@@ -28,11 +28,78 @@ Columns:
 - **Training:** Fine-tune the DistilBERT-base-uncased model on the preprocessed data for sentiment analysis.
 - **Model Evaluation:** Evaluate the performance of the trained model using appropriate evaluation metrics such as accuracy, precision, recall, and F1-score.
 
+
+## EDA (Exploratory Data Analysis)
+![review length distributuion](./images/review-chart.png)
+Description:
+This bar chart visualizes the distribution of review lengths in terms of word count. The x-axis represents different bins or ranges of word counts, while the y-axis shows the frequency or number of reviews falling into each bin. The purpose of this chart is to give an overview of how lengthy the reviews typically are, which can help in understanding the nature of the text data and deciding on any preprocessing steps.
+
+Insights:
+
+The chart may reveal whether reviews tend to be short, medium-length, or long.
+Peaks in the distribution can indicate common review lengths.
+Skewness can suggest if the majority of reviews are short or long.
+
+![rating distributuion](./images/rating-distribution.png)
+
+Description:
+This histogram or bar chart shows the distribution of rating scores given by users. The x-axis represents the possible rating scores (e.g., 1 to 5 stars), and the y-axis represents the number of reviews that fall into each rating category. This visualization helps in understanding the overall sentiment distribution and identifying any biases in the ratings.
+
+Insights:
+
+If most reviews have high ratings, it suggests general satisfaction.
+A balanced distribution indicates varied user opinions.
+Skewness toward lower ratings may signal widespread dissatisfaction.
+
+![overview](./images/dataset-overview.png)
+
+Description:
+This summary table  provides key statistical metrics of the dataset, such as:
+
+Average Words per Review: The mean number of words across all reviews.
+Maximum Number of Words: The longest review in terms of word count.
+Skewness: A measure of the asymmetry of the review length distribution.
+
+Insights:
+The average words per review give an idea of typical review length.
+The maximum number of words indicates the longest review.
+Skewness helps understand if the distribution of review lengths is balanced or if it leans towards shorter or longer reviews.
+
+![wordcloud](./images/wordcloud.png)
+Description:
+This word cloud visualizes the most frequently occurring words in the review texts. Larger words indicate higher frequency, while smaller words indicate lower frequency. This visualization is useful for quickly identifying common themes and topics mentioned by users.
+
+Insights:
+
+Commonly used words can highlight important aspects or frequent issues.
+Positive or negative words can suggest the overall sentiment of the reviews.
+Repeated phrases or product features can provide insights into what users focus on most.
+These visualizations collectively help in understanding the dataset's structure, the distribution of key variables, and the main themes in the review texts, aiding in further analysis and decision-making.
+
 ## Training
 
-To access the training process and code, please refer to the provided notebooks file.
+For the training phase, we fine-tuned the DistilBERT-base-uncased model using the Amazon Fine Food Reviews dataset. The training process involved the following steps:
+
+Preprocessing:
+
+1. Tokenized the text data using DistilBERT's tokenizer.
+1. Converted the tokens to input IDs and attention masks.
+1. Split the data into training and validation sets.
+
+Model Training:
+
+1. Initialized the DistilBERT-base-uncased model with a classification head.
+1. Trained the model for 2 epochs using the training set.
+1. Used a learning rate of 2e-5 and the AdamW optimizer.
+1. Implemented early stopping based on the validation loss to prevent overfitting.
+
 
 ## Model Evaluation
+
+```
+
+```
+
 ```
 Confusion Matrix:
 [[ 230   21   21    8   29]
@@ -50,6 +117,8 @@ F1-score: 0.7325
 
 Input: Maybe not worth it to buy
 Result: The sentiment of the text is: Neutral review
+
+![Demo](./images/demo.png)
 
 ##
 API
